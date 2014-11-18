@@ -134,7 +134,31 @@ public class LgeLteRIL extends RIL implements CommandsInterface {
             String data, String pin2, Message result) {
         //Note: This RIL request has not been renamed to ICC,
         //       but this request is also valid for SIM and RUIM
-        iccIOForApp(command, fileid, path, p1, p2, p3, data, pin2, mAid, result);
+        RILRequest rr
+            = RILRequest.obtain(RIL_REQUEST_SIM_IO, result);
+
+        if (mUSIM)
+            path = path.replaceAll("7F20$","7FFF");
+
+        rr.mParcel.writeInt(command);
+        rr.mParcel.writeInt(fileid);
+        rr.mParcel.writeString(path);
+        rr.mParcel.writeInt(p1);
+        rr.mParcel.writeInt(p2);
+        rr.mParcel.writeInt(p3);
+        rr.mParcel.writeString(data);
+        rr.mParcel.writeString(pin2);
+        rr.mParcel.writeString(mAid);
+
+        if (RILJ_LOGD) riljLog(rr.serialString() + "> iccIO: "
+                    + " aid: " + mAid + " "
+                    + requestToString(rr.mRequest)
+                    + " 0x" + Integer.toHexString(command)
+                    + " 0x" + Integer.toHexString(fileid) + " "
+                    + " path: " + path + ","
+                    + p1 + "," + p2 + "," + p3);
+
+        send(rr);
     }
 
     @Override
