@@ -11,6 +11,12 @@
     "target_path": "frameworks/opt/connectivity",
     "revision":    "lollipop"
   },
+    {
+    "remote":      "github",
+    "repository":  "AOSPA-legacy/android_device_qcom_common",
+    "target_path": "device/qcom/common",
+    "revision":    "lollipop-g2"
+  },
   {
     "remote":      "github",
     "repository":  "lg-devs/android_kernel_lge_msm8974",
