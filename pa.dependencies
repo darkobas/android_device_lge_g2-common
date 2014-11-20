@@ -1,12 +1,20 @@
 [
   {
-    "remote": "github",
-    "repository": "AOSPA-legacy/android_device_qcom_common",
-    "target_path": "device/qcom/common"
+    "remote":      "github",
+    "repository":  "AOSPA-legacy/android_device_qcom_common",
+    "target_path": "device/qcom/common",
+    "revision":    "lollipop"
   },
   {
-    "remote": "github",
-    "repository": "mikecriggs/android_kernel_lge_msm8974",
-    "target_path": "kernel/lge/msm8974"
+    "remote":      "github",
+    "repository":  "AOSPA-legacy/android_frameworks_opt_connectivity",
+    "target_path": "frameworks/opt/connectivity",
+    "revision":    "lollipop"
+  },
+  {
+    "remote":      "github",
+    "repository":  "lg-devs/android_kernel_lge_msm8974",
+    "target_path": "kernel/lge/msm8974",
+    "revision":    "lollipop"
   }
 ]
