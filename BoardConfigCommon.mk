@@ -111,14 +111,11 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 BOARD_HARDWARE_CLASS := device/lge/g2-common/cmhw/
 
-# sepolicy bs something something darkside
-$(call inherit-product, device/qcom/sepolicy/sepolicy.mk)
+BOARD_SEPOLICY_DIRS += \
+        device/lge/g2-common/sepolicy
 
-#BOARD_SEPOLICY_DIRS += \
-#        device/lge/g2-common/sepolicy
 
 # The list below is order dependent
-
 BOARD_SEPOLICY_UNION += \
         app.te \
         bluetooth_loader.te \
