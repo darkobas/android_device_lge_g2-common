@@ -37,7 +37,7 @@ TARGET_NO_BOOTLOADER := true
 
 # Kernel information
 BOARD_KERNEL_BASE     := 0x00000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=g2 user_debug=31 msm_rtb.filter=0x0
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=g2 user_debug=31 msm_rtb.filter=0x0 androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x05000000 --tags_offset 0x04800000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -104,6 +104,9 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/g2-common/bluetooth
 BOARD_BLUEDROID_VENDOR_CONF := device/lge/g2-common/bluetooth/vnd_g2.txt
 
+# Fonts
+EXTENDED_FONT_FOOTPRINT := true
+
 # GPS
 TARGET_NO_RPC := true
 
@@ -111,42 +114,12 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 BOARD_HARDWARE_CLASS := device/lge/g2-common/cmhw/
 
+# SELinux policies
+# qcom sepolicy
+include device/qcom/sepolicy/sepolicy.mk
+
 BOARD_SEPOLICY_DIRS += \
         device/lge/g2-common/sepolicy
-
-
-# The list below is order dependent
-BOARD_SEPOLICY_UNION += \
-        app.te \
-        bluetooth_loader.te \
-        bridge.te \
-        camera.te \
-        device.te \
-        domain.te \
-        file.te \
-        hostapd.te \
-        irsc_util.te \
-        mediaserver.te \
-        mpdecision.te \
-        netmgrd.te \
-        platform_app.te \
-        qmux.te \
-        radio.te \
-        rild.te \
-        rmt.te \
-        sensors.te \
-        ssr.te \
-        surfaceflinger.te \
-        system_server.te \
-        tee.te \
-        thermald.te \
-        time.te \
-        ueventd.te \
-        vss.te \
-        wpa.te \
-        file_contexts \
-        genfs_contexts \
-        te_macros
 
 BOARD_RIL_CLASS := ../../../device/lge/g2-common/ril/
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/g2-common/releasetools

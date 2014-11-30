@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CPU governor (root process)
 type mpdecision, domain;
 type mpdecision_exec, exec_type, file_type;
@@ -47,8 +48,14 @@ allow mpdecision self:capability sys_nice;
 
 allow mpdecision power_control_device:chr_file rw_file_perms;
 
+=======
+>>>>>>> fe4143ac0a67482fe4c634f9409d7f73fa3e618f
 allow mpdecision self:process execmem;
 allow mpdecision servicemanager:binder { call };
+
+type_transition mpdecision socket_device:sock_file mpctl_socket;
+
+allow mpdecision socket_device:dir add_name;
 
 allow servicemanager mpdecision:dir { search };
 allow servicemanager mpdecision:file { r_file_perms };
