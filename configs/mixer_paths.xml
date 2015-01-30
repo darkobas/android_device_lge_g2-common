@@ -299,12 +299,12 @@
         <ctl name="RX7 MIX1 INP1" value="RX1" />
         <ctl name="SPK DRV Volume" value="7" />
         <ctl name="SPK DAC Switch" value="1" />
-        <ctl name="RX7 Digital Volume" value="67" />
+        <ctl name="RX7 Digital Volume" value="64" />
     </path>
 
     <path name="speaker-mic">
         <path name="adc5" />
-        <ctl name="DEC2 Volume" value="70" />
+        <ctl name="DEC2 Volume" value="67" />
     </path>
 
     <path name="handset">
@@ -317,8 +317,8 @@
 
     <path name="handset-mic">
         <path name="adc1" />
-	<ctl name="ADC1 Volume" value="12" />
-	<ctl name="DEC6 Volume" value="68" />
+	<ctl name="ADC1 Volume" value="10" />
+	<ctl name="DEC6 Volume" value="64" />
     </path>
 
     <path name="headphones">
